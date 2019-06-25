@@ -1,27 +1,146 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 
 <head>
     <title>Strona główna</title>
+    <meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-    <header>
-
-    </header>
-    <section>
-        <nav>
-
+    <div>
+        <nav class="navbar navbar-expand-md sticky-top navbar-dark bg-dark" id="navbar-top">
+            <div class="collapse navbar-collapse bg-dark justify-content-center">
+                <h1>Majster.com</h1>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="navbar-item">
+                        <a href="#">Usługi</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="#">Galeria</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="#">Kontakt</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="#"></a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="#">Logowanie</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
-        <div>
-            div
+        <header class="jumbotron text-center" style="margin-bottom:0; padding:0;">
+            <div class="picture">
+
+            </div>
+            <div class="expand-md bg-dark">
+                <h1>Znajdź najlepszego fachowca w okolicy!</h1>
+            </div>
+        </header>
+        <div class="container" style="margin-top:30px">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h2>Rodzaje usług</h2>
+                    <ul class="nav nav-pills flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Usługi budowlane</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Usługi remontowe</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Instalacje</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Aranżacja wnętrz</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Zewnętrzne, ogrodowe</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-8">
+                    <h2>Znajdź najlepszego fachowca w twojej okolicy!</h2>
+                    <h5>Wystarczy, że:</h5>
+                    <ol>
+                        <li>Napiszesz jakiej usługi potrzebujesz</li><br />
+                        <li>Przejrzysz zgłoszenia</li><br />
+                        <li>Wybierzesz najlepszego</li><br />
+                    </ol>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <h2>Fachowcy blisko ciebie</h2>
+                    <ul>
+                        <li>Białystok</li><br />
+                        <li>Bydgoszcz</li><br />
+                        <li>Gdańsk</li><br />
+                        <li>Gdańsk</li><br />
+                        <li>Gorzów Wielkopolski</li><br />
+                        <li>Katowice</li><br />
+                        <li>Kielce</li><br />
+                        <li>Kraków</li><br />
+                        <li>Lublin</li><br />
+                        <li>Łódź</li><br />
+                        <li>Olsztyn</li><br />
+                        <li>Opole</li><br />
+                        <li>Poznań</li><br />
+                        <li>Rzeszów</li><br />
+                        <li>Szczecin</li><br />
+                        <li>Toruń</li><br />
+                        <li>Warszawa</li><br />
+                        <li>Wrocław</li><br />
+                        <li>Zielona Góra</li><br />
+                    </ul>
+                </div>
+                <div class="col-sm-8">
+                    <h2>Poszukujesz fachowca?</h2>
+                    <h5>Wypełnij poniższy formularz</h5>
+                    <form>
+                        <h5>Czego potrzebujesz?</h5>
+                        <input type="text" />
+                        <h5>Imię</h5>
+                        <input type="text" />
+                        <h5>Nazwisko</h5>
+                        <input type="text" />
+                        <h5>E-mail</h5>
+                        <input type="text" />
+                        <h5>Numer telefonu</h5>
+                        <input type="text" /><br />
+                        <input type="checkbox" />
+                        Akceptuję regulamin serwisu
+                    </form>
+                </div>
+            </div>
         </div>
-    </section>
-    <footer>
+    </div>
 
+    <footer class="jumbotron text-center bg-dark " id="foot" style="margin-bottom:0">
+        <p>Footer</p>
     </footer>
+    </div>
 
-
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
