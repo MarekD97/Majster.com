@@ -1,0 +1,41 @@
+.facebook {
+    background-color: #3B5998;
+    color: #FFFFFF;
+    font-family: Helvetica Neue, Arial, sans-serif;
+    padding: 16px 0;
+    font-weight: bold;
+    margin: 0;
+}
+
+.facebook:hover {
+    background-color: #8B9DC3;
+}
+
+.instagram {
+    background-color: #3F729B;
+    font-family: Helvetica Neue, Arial, sans-serif;
+    color: #FFFFFF;
+    padding: 16px 0;
+    font-weight: bold;
+}
+
+.instagram:hover {
+    background-color: #8FB6C6;
+}
+
+.twitter {
+    background-color: #55ACEE;
+    color: #FFFFFF;
+    font-family: Helvetica Neue, Arial, sans-serif;
+    padding: 16px 0;
+    font-weight: bold;
+}
+
+.twitter:hover {
+    background-color: #A5F0ff;
+}
+
+.social-media-button:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+}

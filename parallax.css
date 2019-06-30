@@ -1,0 +1,82 @@
+.parallax {
+    position: relative;
+    background-image: url("images/background_2.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    color: #fff;
+}
+
+.parallax-content {
+    text-align: center;
+    position: relative;
+    top: 30%;
+}
+
+.scroll-arrow a i {
+    transition: all .2s ease-in-out;
+    margin-top: 20%;
+    -webkit-animation: arrow-animation 2s infinite;
+    /* Safari 4+ */
+    -moz-animation: arrow-animation 2s infinite;
+    /* Fx 5+ */
+    -o-animation: arrow-animation 2s infinite;
+    /* Opera 12+ */
+    animation: arrow-animation 2s infinite;
+    /* IE 10+, Fx 29+ */
+}
+
+.scroll-arrow a i:hover {
+    -webkit-transform: scale(2);
+    transform: scale(2);
+    animation-play-state: paused;
+}
+
+@-webkit-keyframes arrow-animation {
+    0% {
+        margin-top: 20%;
+    }
+    40% {
+        margin-top: 15%;
+    }
+    80% {
+        margin-top: 20%;
+    }
+}
+
+@-moz-keyframes arrow-animation {
+    0% {
+        margin-top: 20%;
+    }
+    40% {
+        margin-top: 15%;
+    }
+    80% {
+        margin-top: 20%;
+    }
+}
+
+@-o-keyframes arrow-animation {
+    0% {
+        margin-top: 20%;
+    }
+    40% {
+        margin-top: 15%;
+    }
+    80% {
+        margin-top: 20%;
+    }
+}
+
+@keyframes arrow-animation {
+    0% {
+        margin-top: 20%;
+    }
+    40% {
+        margin-top: 15%;
+    }
+    80% {
+        margin-top: 20%;
+    }
+}
