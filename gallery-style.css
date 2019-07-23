@@ -1,0 +1,30 @@
+.gallery div div {
+    padding: 2%;
+    transition: all 0.4s ease-in-out
+}
+
+.gallery div div img {
+    box-sizing: border-box;
+    border: 4px solid #7e7272;
+    border-radius: 16px;
+    transition: all 0.4s ease-in-out
+}
+
+.gallery div div img:hover {
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+    .gallery div div img:hover {
+        border-radius: 32px;
+        -ms-transform: scale(1.4);
+        /* IE 9 */
+        -webkit-transform: scale(1.4);
+        /* Safari 3-8 */
+        transform: scale(1.4);
+        border-radius: 4px;
+    }
+    .gallery div div:hover {
+        z-index: 1;
+    }
+}

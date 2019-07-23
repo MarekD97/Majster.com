@@ -17,11 +17,12 @@ if ((isset($_SESSION['LOGGED'])) && ($_SESSION['LOGGED'] == true)) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="navbar.css">
-    <link rel="stylesheet" type="text/css" href="parallax.css">
     <link rel="stylesheet" type="text/css" href="socialmedia.css">
+    <link rel="stylesheet" type="text/css" href="gallery-style.css">
     <link href="https://fonts.googleapis.com/css?family=Chivo&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="gallery-grid.js"></script>
 </head>
 
 <body>
@@ -80,41 +81,12 @@ if ((isset($_SESSION['LOGGED'])) && ($_SESSION['LOGGED'] == true)) {
 
             </nav>
         </header>
-        <section class="section-panel-fullscreen">
-            <div class="parallax background-wall">
-                <div class="parallax-title">Logowanie</div>
-            </div>
-        </section>
-        <div class="container" id="content">
-            <div class="row no-gutters">
-                <div class="col-sm-4">
-                    <h2>Zlecenia blisko ciebie</h2>
-                    <ul>
-                        <li>Warszawa</li>
-                        <li>Kraków</li>
-                        <li>Łódź</li>
-                        <li>Wrocław</li>
-                        <li>Poznań</li>
-                        <li>Gdańsk</li>
-                        <li>Szczecin</li>
-                        <li>Bydgoszcz</li>
-                        <li>Lublin</li>
-                        <li>Katowice</li>
-                    </ul>
-                </div>
-                <div class="col-sm-8">
-                    <div class="input-form">
-                        <h5>Wpisz poniżej swoje dane, aby się zalogować na konto.</h5>
-                        <form name="loginForm" action="connection.php" method="post">
-                            Nazwa użytkownika<br />
-                            <input class="input-text" type="text" name="USER" /><br />
-                            Hasło<br />
-                            <input class="input-text" type="password" name="PASSWORD" /><br />
-                            <input type="submit" id="form_submit" value="Zaloguj się" />
-                        </form>
-                    </div>
-                </div>
-            </div>
+        <div style="height:62px"></div>
+        <div class="container gallery" id="content">
+            <!--gallery grid-->
+            <script>
+                displayGalleryGrid();
+            </script>
         </div>
         <footer class="footer">
             <div class="row no-gutters">

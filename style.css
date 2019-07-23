@@ -8,17 +8,19 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Chivo', sans-serif;
   background: url("images/concrete_wall.png");
   background-repeat: repeat;
   position: center;
+  min-height: 100%;
 }
 
-h1 {
-  font-size: 48px;
-  font-weight: bold;
-  color: #fff;
-  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+h2 {
+  font-size: 28px;
+}
+
+h5 {
+  font-size: 18px;
 }
 
 .header {
@@ -27,7 +29,7 @@ h1 {
   top: 0;
   background-image: linear-gradient(#7e7272, #534b4b);
   width: 100%;
-  font-size: 20px;
+  font-size: 18px;
   color: #fff;
   z-index: 1;
 }
@@ -41,64 +43,42 @@ h1 {
   text-decoration: underline;
 }
 
-.navbar-brand {
-  display: block;
-  float: left;
-  height: auto;
-  font-size: 32px;
-}
-
-.navbar-brand img {
-  width: 64px;
-}
-
-.icon-arrow div {
-  float: left;
-  padding: 1px 0;
-  transition: 0.5s;
-}
-
-.arrow-down {
-  -webkit-transform: translate(11.25px, 0px);
-  transform: translate(11.25px, 0px);
-}
-
-.arrow-up {
-  -webkit-transform: translate(-11.25px, 0);
-  transform: translate(-11.25px, 0px);
-  opacity: 0;
-}
-
-.change .arrow-down {
-  opacity: 0;
-}
-
-.change .arrow-up {
-  opacity: 1;
-}
-
-.dropdown-menu {
-  background-color: #534b4b;
-  font-size: 20px;
-}
-
-.dropdown-menu a:hover {
-  background-color: #807373;
-  color: #fff;
-  text-decoration: underline;
-}
-
 .container {
-  padding: 7% 0 0 0;
+  padding-top: 94px;
+  padding-bottom: 32px;
+  margin-top: -62px;
 }
 
-.input-form form input[type="text"], .input-form form input[type="password"] {
-  width: 100%;
+.input-text {
+  width: calc(100% - 144px);
+  box-sizing: border-box;
+  border: 2px solid #7e7272;
+  border-radius: 2px;
+  background-color: white;
+  padding: 4px;
 }
 
-.input-info {
-  width: 100%;
-  resize: none;
+.input-form form input[type="submit"] {
+  margin-top: 8px;
+  width: 140px;
+  box-sizing: border-box;
+  border: 2px solid #7e7272;
+  background-image: linear-gradient(#7e7272, #534b4b);
+  color: #fff;
+  border-radius: 2px;
+  padding: 4px;
+}
+
+.input-form form input[type="submit"]:disabled {
+  opacity: 0.6;
+}
+
+.menu-link {
+  color: #000000;
+}
+.menu-link:hover {
+  color: #000000;
+  text-decoration: underline;
 }
 
 footer {
@@ -107,4 +87,18 @@ footer {
   padding: 10px 0 0 0;
   text-align: center;
   color: white;
+}
+
+@media only screen and (max-width: 768px) {
+  footer div div p {
+    font-size: 14px;
+    padding: 0 14px;
+  }
+  .input-text {
+    width: 100%;
+  }
+  .input-form form input[type="submit"] {
+    width: 100%;
+  }
+
 }

@@ -1,41 +1,42 @@
 .facebook {
     background-color: #3B5998;
-    color: #FFFFFF;
-    font-family: Helvetica Neue, Arial, sans-serif;
-    padding: 16px 0;
-    font-weight: bold;
-    margin: 0;
+}
+
+.instagram {
+    background-color: #3F729B;
+}
+
+.twitter {
+    background-color: #55ACEE;
 }
 
 .facebook:hover {
     background-color: #8B9DC3;
 }
 
-.instagram {
-    background-color: #3F729B;
-    font-family: Helvetica Neue, Arial, sans-serif;
-    color: #FFFFFF;
-    padding: 16px 0;
-    font-weight: bold;
-}
-
 .instagram:hover {
     background-color: #8FB6C6;
-}
-
-.twitter {
-    background-color: #55ACEE;
-    color: #FFFFFF;
-    font-family: Helvetica Neue, Arial, sans-serif;
-    padding: 16px 0;
-    font-weight: bold;
 }
 
 .twitter:hover {
     background-color: #A5F0ff;
 }
 
-.social-media-button:hover {
+.social-media-button {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+}
+
+.social-media-button div {
     color: #FFFFFF;
-    text-decoration: none;
+    font-family: Helvetica Neue, Arial, sans-serif;
+    padding: 16px 0;
+    font-weight: bold;
+    border-radius: 20px;
+    transition: ease-in-out 0.2s;
+}
+
+.social-media-button i {
+    font-size: 20px;
 }

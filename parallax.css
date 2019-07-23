@@ -1,6 +1,5 @@
 .parallax {
     position: relative;
-    background-image: url("images/background_2.jpg");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -8,15 +7,39 @@
     color: #fff;
 }
 
-.parallax-content {
+.background-tools {
+    background-image: url("images/background_tools.jpg");
+}
+
+.background-wall {
+    background-image: url("images/background_wall.jpg");
+    height: 50vh;
+}
+
+.parallax-title {
     text-align: center;
     position: relative;
     top: 30%;
+    font-size: 44px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+@media only screen and (max-width: 768px) {
+    .parallax-title {
+        font-size: 32px;
+    }
+    .scroll-arrow a i {
+        font-size: 38px;
+    }
 }
 
 .scroll-arrow a i {
     transition: all .2s ease-in-out;
     margin-top: 20%;
+    color: #fff;
+    font-size: 56px;
     -webkit-animation: arrow-animation 2s infinite;
     /* Safari 4+ */
     -moz-animation: arrow-animation 2s infinite;
