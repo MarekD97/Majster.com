@@ -1,12 +1,12 @@
+<!DOCTYPE html>
 <?php
 session_start();
-
-if ((isset($_SESSION['LOGGED'])) && ($_SESSION['LOGGED'] == true)) {
-    header('Location: account.php');
+if (!isset($_SESSION['LOGGED'])) {
+    header('Location: login.php');
+    $_SESSION['PAGE_LOCATION'] = "gallery.php";
     exit();
 }
 ?>
-<!DOCTYPE html>
 <html lang="pl">
 
 <head>
@@ -22,7 +22,7 @@ if ((isset($_SESSION['LOGGED'])) && ($_SESSION['LOGGED'] == true)) {
     <link href="https://fonts.googleapis.com/css?family=Chivo&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="gallery-grid.js"></script>
+    <script src="gallery.js"></script>
 </head>
 
 <body>
@@ -74,7 +74,13 @@ if ((isset($_SESSION['LOGGED'])) && ($_SESSION['LOGGED'] == true)) {
                             <a class="nav-link"></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="login.php">Logowanie</a>
+                            <?php
+                            if (!isset($_SESSION['LOGGED'])) {
+                                echo '<a class="nav-link" href="account.php">Logowanie</a>';
+                            } else {
+                                echo '<a class="nav-link" href="logout.php">Wyloguj</a>';
+                            }
+                            ?>
                         </li>
                     </ul>
                 </div>
@@ -85,8 +91,10 @@ if ((isset($_SESSION['LOGGED'])) && ($_SESSION['LOGGED'] == true)) {
         <div class="container gallery" id="content">
             <!--gallery grid-->
             <script>
-                displayGalleryGrid();
+                loadGallery();
             </script>
+        </div>
+        <div class="container-fullscreen" id="content-fullscreen" style="visibility:collapse">
         </div>
         <footer class="footer">
             <div class="row no-gutters">

@@ -69,12 +69,6 @@ if ((isset($_SESSION['LOGGED'])) && ($_SESSION['LOGGED'] == true)) {
                         <li class="nav-item">
                             <a class="nav-link" href="contact.php">Kontakt</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link"></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.php">Logowanie</a>
-                        </li>
                     </ul>
                 </div>
 
@@ -87,8 +81,8 @@ if ((isset($_SESSION['LOGGED'])) && ($_SESSION['LOGGED'] == true)) {
         </section>
         <div class="container" id="content">
             <div class="row no-gutters">
-                <div class="col-sm-4">
-                    <h2>Zlecenia blisko ciebie</h2>
+                <div class="col-sm-4 d-none d-sm-block">
+                    <h2>Fachowcy blisko ciebie</h2>
                     <ul>
                         <li>Warszawa</li>
                         <li>Kraków</li>
@@ -115,6 +109,58 @@ if ((isset($_SESSION['LOGGED'])) && ($_SESSION['LOGGED'] == true)) {
                     </div>
                 </div>
             </div>
+            <div class="row no-gutters">
+                <div class="col-sm-4 d-none d-sm-block">
+                    <h2>Zlecenia blisko ciebie</h2>
+                    <ul>
+                        <li>Warszawa</li>
+                        <li>Kraków</li>
+                        <li>Łódź</li>
+                        <li>Wrocław</li>
+                        <li>Poznań</li>
+                        <li>Gdańsk</li>
+                        <li>Szczecin</li>
+                        <li>Bydgoszcz</li>
+                        <li>Lublin</li>
+                        <li>Katowice</li>
+                    </ul>
+                </div>
+                <div class="col-sm-8">
+                    <div class="input-form">
+                        <h5>Nie posiadasz konta w naszym serwisie? Załóż je teraz!</h5>
+                        <form action="" method="post">
+                            Nazwa użytkownika<br />
+                            <input class="input-text" type="text" name="USER" /><br />
+                            Nowe hasło<br />
+                            <input class="input-text" type="password" name="PASSWORD" /><br />
+                            Powtórz nowe hasło<br />
+                            <input class="input-text" type="password" name="PASSWORD_REPEAT" /><br />
+                            Imię<br />
+                            <input class="input-text" type="text" name="FIRST_NAME" /><br />
+                            Nazwisko<br />
+                            <input class="input-text" type="text" name="LAST_NAME" /><br />
+                            E-mail<br />
+                            <input class="input-text" type="text" name="EMAIL" /><br />
+                            Numer telefonu<br />
+                            <input class="input-text" type="text" name="TELEPHONE" /><br />
+                            <input type="checkbox" id="form_checkbox" onclick="Checked()" />
+                            Akceptuję regulamin serwisu<br />
+                            <input type="submit" id="form_submit" value="Stwórz konto" disabled />
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <script>
+                function Checked() {
+                    var checkbox = document.getElementById("form_checkbox");
+                    var submit = document.getElementById("form_submit");
+                    if (checkbox.checked == true) {
+                        submit.disabled = false;
+                    } else {
+                        submit.disabled = true;
+                    }
+                }
+            </script>
         </div>
         <footer class="footer">
             <div class="row no-gutters">

@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php
+session_start();
+if (isset($_SESSION['LOGGED'])) {
+    header('Location: account.php');
+    $_SESSION['PAGE_LOCATION'] = "account.php";
+    exit();
+}
+?>
 <html lang="pl">
 
 <head>
@@ -65,7 +73,13 @@
                             <a class="nav-link"></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="login.php">Logowanie</a>
+                            <?php
+                            if (!isset($_SESSION['LOGGED'])) {
+                                echo '<a class="nav-link" href="account.php">Logowanie</a>';
+                            } else {
+                                echo '<a class="nav-link" href="logout.php">Wyloguj</a>';
+                            }
+                            ?>
                         </li>
                     </ul>
                 </div>
@@ -75,6 +89,11 @@
         <section class="section-panel-fullscreen">
             <div class="parallax background-tools">
                 <div class="parallax-title">
+                    <?php 
+                    if(isset($_POST['LOGOUT']))
+                        if($_POST['LOGOUT']==true)
+                            echo "Wylogowano pomyślnie<br />";
+                    ?>
                     Potrzebujesz fachowca? Pomożemy znaleźć najlepszego w mieście!
                     <div class="scroll-arrow">
                         <a href="#content">

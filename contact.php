@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+session_start();
+?>
 <html lang="pl">
 
 <head>
@@ -65,7 +68,13 @@
                             <a class="nav-link"></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="login.php">Logowanie</a>
+                            <?php
+                            if (!isset($_SESSION['LOGGED'])) {
+                                echo '<a class="nav-link" href="account.php">Logowanie</a>';
+                            } else {
+                                echo '<a class="nav-link" href="logout.php">Wyloguj</a>';
+                            }
+                            ?>
                         </li>
                     </ul>
                 </div>

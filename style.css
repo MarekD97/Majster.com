@@ -12,7 +12,6 @@ body {
   background: url("images/concrete_wall.png");
   background-repeat: repeat;
   position: center;
-  min-height: 100%;
 }
 
 h2 {

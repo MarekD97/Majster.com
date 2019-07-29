@@ -6,4 +6,5 @@ unset($_SESSION['LOGGED_USER']);
 
 session_destroy();
 
-header('Location: login.php');
+header('Location: index.php');
+?>

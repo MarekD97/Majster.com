@@ -88,7 +88,7 @@ if (!isset($_SESSION['LOGGED'])) {
         <section class="section-panel-fullscreen">
             <div class="parallax background-tools">
                 <div class="parallax-title">
-                    Potrzebujesz fachowca? Pomożemy znaleźć najlepszego w mieście!
+                    Zalogowany!
                     <div class="scroll-arrow">
                         <a href="#content">
                             <i class='fas fa-angle-double-down'></i>
@@ -144,6 +144,17 @@ if (!isset($_SESSION['LOGGED'])) {
                             <input type="submit" value="Dalej" />
                         </form>
                     </div>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-sm-12">
+                    <?php
+                    echo "USER_LOGIN:";
+                    echo $_SESSION['LOGGED_USER'];
+                    echo "<br />";
+                    echo "PASSWORD:";
+                    echo $_SESSION['PASSWORD'];
+                    ?>
                 </div>
             </div>
         </div>
