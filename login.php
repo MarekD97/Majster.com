@@ -60,7 +60,7 @@ if ((isset($_SESSION['LOGGED'])) && ($_SESSION['LOGGED'] == true)) {
                                 <a class="dropdown-item" href="#">Aranżacja wnętrz</a>
                                 <a class="dropdown-item" href="#">Zewnętrzne, ogrodowe</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Formularz zgłoszeniowy</a>
+                                <a class="dropdown-item" href="index.php#application_form">Formularz zgłoszeniowy</a>
                             </div>
                         </li>
                         <li class="nav-item">

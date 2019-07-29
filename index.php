@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <?php
 session_start();
-if (isset($_SESSION['LOGGED'])) {
-    header('Location: account.php');
-    $_SESSION['PAGE_LOCATION'] = "account.php";
-    exit();
-}
 ?>
 <html lang="pl">
 
@@ -60,7 +55,7 @@ if (isset($_SESSION['LOGGED'])) {
                                 <a class="dropdown-item" href="#">Aranżacja wnętrz</a>
                                 <a class="dropdown-item" href="#">Zewnętrzne, ogrodowe</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Formularz zgłoszeniowy</a>
+                                <a class="dropdown-item" href="#application_form">Formularz zgłoszeniowy</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -72,6 +67,11 @@ if (isset($_SESSION['LOGGED'])) {
                         <li class="nav-item">
                             <a class="nav-link"></a>
                         </li>
+                        <?php
+                        if (isset($_SESSION['LOGGED'])) {
+                            echo '<li class="nav-item"><a class="nav-link" href="account.php">Profil</a></li>';
+                        }
+                        ?>
                         <li class="nav-item">
                             <?php
                             if (!isset($_SESSION['LOGGED'])) {
@@ -89,9 +89,9 @@ if (isset($_SESSION['LOGGED'])) {
         <section class="section-panel-fullscreen">
             <div class="parallax background-tools">
                 <div class="parallax-title">
-                    <?php 
-                    if(isset($_POST['LOGOUT']))
-                        if($_POST['LOGOUT']==true)
+                    <?php
+                    if (isset($_POST['LOGOUT']))
+                        if ($_POST['LOGOUT'] == true)
                             echo "Wylogowano pomyślnie<br />";
                     ?>
                     Potrzebujesz fachowca? Pomożemy znaleźć najlepszego w mieście!
@@ -177,21 +177,21 @@ if (isset($_SESSION['LOGGED'])) {
                         <li>Katowice</li>
                     </ul>
                 </div>
-                <div class="col-sm-8">
+                <div class="col-sm-8" id="application_form">
                     <div class="input-form">
                         <h2>Prowadzisz firmę remontową i poszukujesz zleceń?</h2>
                         <h5>Jeśli nie posiadasz konta w naszym serwisie, załóż je teraz!</h5>
-                        <form action="" method="post">
+                        <form action="database_new_account.php" method="post">
                             Nazwa użytkownika<br />
-                            <input class="input-text" type="text" name="USER" /><br />
+                            <input class="input-text" type="text" name="USERNAME" /><br />
                             Nowe hasło<br />
                             <input class="input-text" type="password" name="PASSWORD" /><br />
                             Powtórz nowe hasło<br />
                             <input class="input-text" type="password" name="PASSWORD_REPEAT" /><br />
                             Imię<br />
-                            <input class="input-text" type="text" name="FIRST_NAME" /><br />
+                            <input class="input-text" type="text" name="FIRSTNAME" /><br />
                             Nazwisko<br />
-                            <input class="input-text" type="text" name="LAST_NAME" /><br />
+                            <input class="input-text" type="text" name="LASTNAME" /><br />
                             E-mail<br />
                             <input class="input-text" type="text" name="EMAIL" /><br />
                             Numer telefonu<br />

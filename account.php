@@ -16,7 +16,7 @@ if (!isset($_SESSION['LOGGED'])) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="navbar.css">
-    <link rel="stylesheet" type="text/css" href="parallax.css">
+    <link rel="stylesheet" type="text/css" href="account-style.css">
     <link rel="stylesheet" type="text/css" href="socialmedia.css">
     <link href="https://fonts.googleapis.com/css?family=Chivo&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
@@ -59,7 +59,7 @@ if (!isset($_SESSION['LOGGED'])) {
                                 <a class="dropdown-item" href="#">Aranżacja wnętrz</a>
                                 <a class="dropdown-item" href="#">Zewnętrzne, ogrodowe</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Formularz zgłoszeniowy</a>
+                                <a class="dropdown-item" href="index.php#application_form">Formularz zgłoszeniowy</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -85,140 +85,82 @@ if (!isset($_SESSION['LOGGED'])) {
 
             </nav>
         </header>
-        <section class="section-panel-fullscreen">
-            <div class="parallax background-tools">
-                <div class="parallax-title">
-                    Zalogowany!
-                    <div class="scroll-arrow">
-                        <a href="#content">
-                            <i class='fas fa-angle-double-down'></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div style="height:62px"></div>
         <div class="container" id="content">
             <div class="row no-gutters">
-                <div class="col-sm-4">
-                    <h2>Rodzaje usług</h2>
-                    <ul>
-                        <li><a class="menu-link" href="#">Usługi budowlane</a></li>
-                        <li><a class="menu-link" href="#">Usługi remontowe</a></li>
-                        <li><a class="menu-link" href="#">Instalacje</a></li>
-                        <li><a class="menu-link" href="#">Aranżacja wnętrz</a></li>
-                        <li><a class="menu-link" href="#">Zewnętrzne, ogrodowe</a></li>
-                    </ul>
+                <div class="col-4 col-lg-3 account-picture">
+                    <img src="images/account/profile-picture.png" width="100%" height="100%">
                 </div>
-                <div class="col-sm-8">
-                    <h2>Znajdź najlepszego fachowca w twojej okolicy!</h2>
-                    <h5>Wystarczy, że:</h5>
-                    <ol>
-                        <li>Napiszesz jakiej usługi potrzebujesz</li>
-                        <li>Przejrzysz zgłoszenia</li>
-                        <li>Wybierzesz najlepszego</li>
-                    </ol>
+                <div class="col-8 col-lg-9 account-data">
+                    <h2>
+                        <?php
+                        echo $_SESSION['FIRSTNAME'];
+                        echo " ";
+                        echo $_SESSION['LASTNAME'];
+                        ?>
+                    </h2>
+                    <h5>
+                        <?php
+                        echo $_SESSION['EMAIL'];
+                        echo "<br />";
+                        echo $_SESSION['TELEPHONE'];
+                        ?>
+                    </h5>
                 </div>
             </div>
-            <div class="row no-gutters">
-                <div class="col-sm-4">
-                    <h2>Fachowcy blisko ciebie</h2>
-                    <ul>
-                        <li>Warszawa</li>
-                        <li>Kraków</li>
-                        <li>Łódź</li>
-                        <li>Wrocław</li>
-                        <li>Poznań</li>
-                        <li>Gdańsk</li>
-                        <li>Szczecin</li>
-                        <li>Bydgoszcz</li>
-                        <li>Lublin</li>
-                        <li>Katowice</li>
-                    </ul>
-                </div>
-                <div class="col-sm-8">
-                    <div class="input-form">
-                        <h2>Poszukujesz fachowca?</h2>
-                        <h5>Napisz poniżej czego potrzebujesz...</h5>
-                        <form action="" method="post">
-                            <input class="input-text" type="text" name="SEARCH" placeholder="np. gipsowanie ścian, montaż okien..." />
-                            <input type="submit" value="Dalej" />
-                        </form>
+            <div class="account-menu">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-center">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="account-link nav-link" href="#">Zlecenia</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="account-link nav-link" href="#">Profil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="account-link nav-link" href="#">Opinie</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="account-link nav-link" href="#">Inne</a>
+                            </li>
+                        </ul>
                     </div>
-                </div>
+                </nav>
             </div>
-            <div class="row no-gutters">
-                <div class="col-sm-12">
-                    <?php
-                    echo "USER_LOGIN:";
-                    echo $_SESSION['LOGGED_USER'];
-                    echo "<br />";
-                    echo "PASSWORD:";
-                    echo $_SESSION['PASSWORD'];
-                    ?>
-                </div>
+            <div class="row no-gutters" style="margin-top:4px;">
+                <table>
+                    <tr>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>11</td>
+                        <td>12</td>
+                    </tr>
+
+                </table>
             </div>
-        </div>
-        <section class="section-panel-fullscreen">
-            <div class="parallax background-wall">
-                <div class="parallax-title">
-                    Jesteś fahowcem i szukasz zleceń? Dołącz i otrzymuj zlecenia z całej Polski.
-                </div>
+            <div>
+                <?php
+                echo "USER:";
+                echo $_SESSION['LOGGED_USER'];
+                echo "<br />PASSWORD:";
+                echo $_SESSION['PASSWORD'];
+                ?>
             </div>
-        </section>
-        <div class="container" id="content2">
-            <div class="row no-gutters">
-                <div class="col-sm-4">
-                    <h2>Zlecenia blisko ciebie</h2>
-                    <ul>
-                        <li>Warszawa</li>
-                        <li>Kraków</li>
-                        <li>Łódź</li>
-                        <li>Wrocław</li>
-                        <li>Poznań</li>
-                        <li>Gdańsk</li>
-                        <li>Szczecin</li>
-                        <li>Bydgoszcz</li>
-                        <li>Lublin</li>
-                        <li>Katowice</li>
-                    </ul>
-                </div>
-                <div class="col-sm-8">
-                    <div class="input-form">
-                        <h2>Prowadzisz firmę remontową i poszukujesz zleceń?</h2>
-                        <h5>Jeśli nie posiadasz konta w naszym serwisie, załóż je teraz!</h5>
-                        <form action="" method="post">
-                            Nazwa użytkownika<br />
-                            <input class="input-text" type="text" name="USER" /><br />
-                            Nowe hasło<br />
-                            <input class="input-text" type="password" name="PASSWORD" /><br />
-                            Powtórz nowe hasło<br />
-                            <input class="input-text" type="password" name="PASSWORD_REPEAT" /><br />
-                            Imię<br />
-                            <input class="input-text" type="text" name="FIRST_NAME" /><br />
-                            Nazwisko<br />
-                            <input class="input-text" type="text" name="LAST_NAME" /><br />
-                            E-mail<br />
-                            <input class="input-text" type="text" name="EMAIL" /><br />
-                            Numer telefonu<br />
-                            <input class="input-text" type="text" name="TELEPHONE" /><br />
-                            <input type="checkbox" id="form_checkbox" onclick="Checked()" />
-                            Akceptuję regulamin serwisu<br />
-                            <input type="submit" id="form_submit" value="Stwórz konto" disabled />
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <script>
-                function Checked() {
-                    var checkbox = document.getElementById("form_checkbox");
-                    var submit = document.getElementById("form_submit");
-                    if (checkbox.checked == true) {
-                        submit.disabled = false;
-                    } else {
-                        submit.disabled = true;
-                    }
-                }
-            </script>
         </div>
 
         <footer class="footer">

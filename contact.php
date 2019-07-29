@@ -55,7 +55,7 @@ session_start();
                                 <a class="dropdown-item" href="#">Aranżacja wnętrz</a>
                                 <a class="dropdown-item" href="#">Zewnętrzne, ogrodowe</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Formularz zgłoszeniowy</a>
+                                <a class="dropdown-item" href="index.php#application_form">Formularz zgłoszeniowy</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -67,6 +67,11 @@ session_start();
                         <li class="nav-item">
                             <a class="nav-link"></a>
                         </li>
+                        <?php
+                        if (isset($_SESSION['LOGGED'])) {
+                            echo '<li class="nav-item"><a class="nav-link" href="account.php">Profil</a></li>';
+                        }
+                        ?>
                         <li class="nav-item">
                             <?php
                             if (!isset($_SESSION['LOGGED'])) {
@@ -93,10 +98,9 @@ session_start();
                     <h5>Politechnika Poznańska, Automatyka i Robotyka, wydział Informatyki</h5>
                     <p>Nr indeksu: 132048</p>
                     <p>Grupa dziekańska: A1</p>
-                    <p>Telefon: +48 536 ### ###</p>
                     <p>E-mail: mdorosz2@wp.pl</p>
                     <p>Projekt zaliczeniowy z przedmiotu Aplikacje internetowe</p>
-                    <p>Github: <a href="https://github.com/MarekD97">https://github.com/MarekD97</a></p>
+                    <p>Github: <a class="menu-link" href="https://github.com/MarekD97">https://github.com/MarekD97</a></p>
                 </div>
             </div>
         </div>

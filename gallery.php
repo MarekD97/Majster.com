@@ -61,7 +61,7 @@ if (!isset($_SESSION['LOGGED'])) {
                                 <a class="dropdown-item" href="#">Aranżacja wnętrz</a>
                                 <a class="dropdown-item" href="#">Zewnętrzne, ogrodowe</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Formularz zgłoszeniowy</a>
+                                <a class="dropdown-item" href="index.php#application_form">Formularz zgłoszeniowy</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -73,6 +73,11 @@ if (!isset($_SESSION['LOGGED'])) {
                         <li class="nav-item">
                             <a class="nav-link"></a>
                         </li>
+                        <?php
+                        if (isset($_SESSION['LOGGED'])) {
+                            echo '<li class="nav-item"><a class="nav-link" href="account.php">Profil</a></li>';
+                        }
+                        ?>
                         <li class="nav-item">
                             <?php
                             if (!isset($_SESSION['LOGGED'])) {

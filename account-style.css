@@ -1,0 +1,34 @@
+.account-picture {
+    border: 4px solid #7e7272;
+}
+
+.account-data {
+    text-align: center;
+}
+
+.account-menu {
+    margin: 8px 0;
+    background-image: linear-gradient(#7e7272, #534b4b);
+    width: 100%;
+    font-size: 18px;
+    color: #fff;
+    z-index: 1;
+}
+
+.account-menu a {
+    color: #fff;
+}
+
+.account-menu a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+}
+
+td, th {
+    border: 4px solid #7e7272;
+}
