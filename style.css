@@ -88,6 +88,24 @@ footer {
   color: white;
 }
 
+.icon-game {
+  width: 100%;
+  height: auto;
+  text-align: center;
+  font-size: 52px;
+}
+
+.icon-game a i {
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
+  color: #000000;
+}
+
+.icon-game a:hover i {
+  transform: scale(1.5);
+}
+
+
 @media only screen and (max-width: 768px) {
   footer div div p {
     font-size: 14px;

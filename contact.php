@@ -17,6 +17,24 @@ session_start();
     <link href="https://fonts.googleapis.com/css?family=Chivo&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .main-section {
+            background-image: url("images/background_wall.jpg");
+            background-attachment: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        .container div {
+            background: url("images/concrete_wall.png");
+            border: 4px solid #7e7272;
+            border-radius: 4px;
+            padding: 25px;
+            margin: 25vh auto;
+            z-index: 1;
+        }
+    </style>
 </head>
 
 <body>
@@ -49,13 +67,13 @@ session_start();
                                 Usługi
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Usługi budowlane</a>
-                                <a class="dropdown-item" href="#">Usługi remontowe</a>
-                                <a class="dropdown-item" href="#">Instalacje</a>
-                                <a class="dropdown-item" href="#">Aranżacja wnętrz</a>
-                                <a class="dropdown-item" href="#">Zewnętrzne, ogrodowe</a>
+                            <a class="dropdown-item" href="service_building.php">Usługi budowlane</a>
+                                <a class="dropdown-item" href="service_renovation.php">Usługi remontowe</a>
+                                <a class="dropdown-item" href="service_installation.php">Instalacje</a>
+                                <a class="dropdown-item" href="service_indoors.php">Aranżacja wnętrz</a>
+                                <a class="dropdown-item" href="service_outdoors.php">Zewnętrzne, ogrodowe</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="index.php#application_form">Formularz zgłoszeniowy</a>
+                                <a class="dropdown-item" href="#">Formularz zgłoszeniowy</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -67,11 +85,15 @@ session_start();
                         <li class="nav-item">
                             <a class="nav-link"></a>
                         </li>
-                        <?php
-                        if (isset($_SESSION['LOGGED'])) {
-                            echo '<li class="nav-item"><a class="nav-link" href="account.php">Profil</a></li>';
-                        }
-                        ?>
+                        <li class="nav-item">
+                            <?php
+                            if (isset($_SESSION['LOGGED'])) {
+                                echo '<a class="nav-link" href="account.php">Profil</a>';
+                            } else {
+                                echo '<a class="nav-link" href="index.php#application_form">Załóż konto</a>';
+                            }
+                            ?>
+                        </li>
                         <li class="nav-item">
                             <?php
                             if (!isset($_SESSION['LOGGED'])) {
@@ -86,22 +108,16 @@ session_start();
 
             </nav>
         </header>
-        <section class="section-panel-fullscreen">
-            <div class="parallax background-wall">
-                <div class="parallax-title">Kontakt z twórcą strony</div>
-            </div>
-        </section>
         <div class="container" id="content">
-            <div class="row no-gutters">
-                <div class="col-sm-8 justify-content-center">
-                    <h2>Autor strony: Marek Dorosz</h2>
-                    <h5>Politechnika Poznańska, Automatyka i Robotyka, wydział Informatyki</h5>
-                    <p>Nr indeksu: 132048</p>
-                    <p>Grupa dziekańska: A1</p>
-                    <p>E-mail: mdorosz2@wp.pl</p>
-                    <p>Projekt zaliczeniowy z przedmiotu Aplikacje internetowe</p>
-                    <p>Github: <a class="menu-link" href="https://github.com/MarekD97">https://github.com/MarekD97</a></p>
-                </div>
+            <div>
+                <h2>Autor strony: Marek Dorosz</h2>
+                <h5>Politechnika Poznańska, Automatyka i Robotyka, wydział Informatyki</h5>
+                <p>Nr indeksu: 132048</p>
+                <p>Grupa dziekańska: A1</p>
+                <p>E-mail: mdorosz2@wp.pl</p>
+                <p>Projekt zaliczeniowy z przedmiotu Aplikacje internetowe</p>
+                <p>Github: <a class="menu-link" href="https://github.com/MarekD97">https://github.com/MarekD97</a></p>
+                <img src="images/putpoznan.svg" width="100%" height="100%" alt="Politechnika Poznańska" />
             </div>
         </div>
 

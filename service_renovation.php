@@ -1,28 +1,39 @@
 <!DOCTYPE html>
 <?php
 session_start();
-if (!isset($_SESSION['LOGGED'])) {
-    header('Location: login.php');
-    $_SESSION['PAGE_LOCATION'] = "gallery.php";
-    exit();
-}
 ?>
 <html lang="pl">
 
 <head>
-    <title>Majster.com - Strona logowania</title>
+    <title>Majster.com - Strona główna</title>
     <link rel="icon" href="images/logo.ico">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="navbar.css">
+    <link rel="stylesheet" type="text/css" href="parallax.css">
     <link rel="stylesheet" type="text/css" href="socialmedia.css">
-    <link rel="stylesheet" type="text/css" href="gallery-style.css">
     <link href="https://fonts.googleapis.com/css?family=Chivo&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="gallery.js"></script>
+    <style>
+        .main-section {
+            background-image: url("images/background_wall.jpg");
+            background-attachment: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        .container div {
+            background: url("images/concrete_wall.png");
+            border: 4px solid #7e7272;
+            border-radius: 4px;
+            margin: 25vh auto;
+            height: 50vh;
+        }
+    </style>
 </head>
 
 <body>
@@ -54,14 +65,14 @@ if (!isset($_SESSION['LOGGED'])) {
                             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                                 Usługi
                             </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Usługi budowlane</a>
-                                <a class="dropdown-item" href="#">Usługi remontowe</a>
-                                <a class="dropdown-item" href="#">Instalacje</a>
-                                <a class="dropdown-item" href="#">Aranżacja wnętrz</a>
-                                <a class="dropdown-item" href="#">Zewnętrzne, ogrodowe</a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="service_building.php">Usługi budowlane</a>
+                                <a class="dropdown-item" href="service_renovation.php">Usługi remontowe</a>
+                                <a class="dropdown-item" href="service_installation.php">Instalacje</a>
+                                <a class="dropdown-item" href="service_indoors.php">Aranżacja wnętrz</a>
+                                <a class="dropdown-item" href="service_outdoors.php">Zewnętrzne, ogrodowe</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="index.php#application_form">Formularz zgłoszeniowy</a>
+                                <a class="dropdown-item" href="#">Formularz zgłoszeniowy</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -74,13 +85,13 @@ if (!isset($_SESSION['LOGGED'])) {
                             <a class="nav-link"></a>
                         </li>
                         <li class="nav-item">
-                        <?php
-                        if (isset($_SESSION['LOGGED'])) {
-                            echo '<a class="nav-link" href="account.php">Profil</a>';
-                        } else {
-                            echo '<a class="nav-link" href="index.php#application_form">Załóż konto</a>';
-                        }
-                        ?>
+                            <?php
+                            if (isset($_SESSION['LOGGED'])) {
+                                echo '<a class="nav-link" href="account.php">Profil</a>';
+                            } else {
+                                echo '<a class="nav-link" href="#application_form">Załóż konto</a>';
+                            }
+                            ?>
                         </li>
                         <li class="nav-item">
                             <?php
@@ -96,14 +107,10 @@ if (!isset($_SESSION['LOGGED'])) {
 
             </nav>
         </header>
-        <div style="height:62px"></div>
-        <div class="container gallery" id="content">
-            <!--gallery grid-->
-            <script>
-                loadGallery();
-            </script>
-        </div>
-        <div class="container-fullscreen" id="content-fullscreen" style="visibility:collapse">
+        <div class="container" id="content">
+            <div>
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/suVnzuWy2fA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
         </div>
         <footer class="footer">
             <div class="row no-gutters">

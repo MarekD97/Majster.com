@@ -1,11 +1,4 @@
 <?php
-session_start();
-
-unset($_SESSION['LOGGED']);
-unset($_SESSION['LOGGED_USER']);
-
-session_unset();
-
 require_once "database_connection.php";
 $connection = mysqli_connect($servername, $username, $password);
 if (!$connection) {
@@ -20,7 +13,7 @@ mysqli_select_db($connection, $database);
 $sql = "INSERT INTO $table (`username`, `password`, `firstname`, `lastname`, `email`, `telephone`) VALUES ('" . $_POST["USERNAME"] . "', '" . md5($_POST["PASSWORD"]) . "', '" . $_POST["FIRSTNAME"] . "', '" . $_POST["LASTNAME"] . "', '" . $_POST["EMAIL"] . "', '" . $_POST["TELEPHONE"] . "')";
 if ($connection->query($sql) === TRUE) {
     echo "New record created successfully";
-    // header('Location: login.php');
+    header('Location: login.php');
 } else {
     echo "Error: " . $sql . "<br>" . $connection->error;
 }

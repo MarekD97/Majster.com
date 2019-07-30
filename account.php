@@ -53,13 +53,13 @@ if (!isset($_SESSION['LOGGED'])) {
                                 Usługi
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Usługi budowlane</a>
-                                <a class="dropdown-item" href="#">Usługi remontowe</a>
-                                <a class="dropdown-item" href="#">Instalacje</a>
-                                <a class="dropdown-item" href="#">Aranżacja wnętrz</a>
-                                <a class="dropdown-item" href="#">Zewnętrzne, ogrodowe</a>
+                                <a class="dropdown-item" href="service_building.php">Usługi budowlane</a>
+                                <a class="dropdown-item" href="service_renovation.php">Usługi remontowe</a>
+                                <a class="dropdown-item" href="service_installation.php">Instalacje</a>
+                                <a class="dropdown-item" href="service_indoors.php">Aranżacja wnętrz</a>
+                                <a class="dropdown-item" href="service_outdoors.php">Zewnętrzne, ogrodowe</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="index.php#application_form">Formularz zgłoszeniowy</a>
+                                <a class="dropdown-item" href="#">Formularz zgłoszeniowy</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -152,14 +152,6 @@ if (!isset($_SESSION['LOGGED'])) {
                     </tr>
 
                 </table>
-            </div>
-            <div>
-                <?php
-                echo "USER:";
-                echo $_SESSION['LOGGED_USER'];
-                echo "<br />PASSWORD:";
-                echo $_SESSION['PASSWORD'];
-                ?>
             </div>
         </div>
 

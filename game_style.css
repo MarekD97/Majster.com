@@ -1,0 +1,52 @@
+.word {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    clear: both;
+}
+
+.row-container {
+    background: url("images/concrete_wall.png");
+    border: 4px solid #7e7272;
+    border-radius: 4px;
+    padding: 25px;
+    margin: 25vh auto;
+    z-index: 1;
+}
+
+.inputLetter {
+    border: 1px solid #534b4b;
+    width: 60px;
+    height: 40px;
+    padding: 0;
+    margin: 1px;
+    float: left;
+}
+
+.button {
+    margin-top: 8px;
+  width: 140px;
+  box-sizing: border-box;
+  border: 2px solid #7e7272;
+  background-image: linear-gradient(#7e7272, #534b4b);
+  color: #fff;
+  border-radius: 2px;
+  padding: 4px;
+}
+
+@media only screen and (max-width: 768px) {
+    #mobile {
+        display: block;
+    }
+    #desktop {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #mobile {
+        display: none;
+    }
+}

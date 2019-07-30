@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" baseProfile="full" width="400" height="400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+                    <rect x="0" y="0" width="400" height="400" fill="#ccffcc" />
+                    <polygon points="0,357 138,357 150,400 161,400 150,357 337,357 337,400 350,400 350,365 400,365 400,360 350,360 350,282 378,230 400,230 400,223 381,223 400,187 400,168 350,262 350,82 400,82 400,70 350,70 350,0 337,0 337,65 184,126 147,126 147,124 137,124 137,126 69,126 69,135 137,135 137,346 0,346" style="fill:#C6CFD6;stroke:black;stroke-width:0.5" />
+                    <polygon points="147,346 337,346 337,77 185,135 147,135" style="fill:#ccffcc;stroke:black;stroke-width:0.5" />
+
+                    <!--Centrum Sportu-->
+                    <rect x="67" y="257" width="24" height="63" style="fill:#EAEAEA;stroke:black;stroke-width:0.5;opacity:1" />
+                    <text x="70" y="300" fill="black" font-size="12">CS</text>
+
+                    <!--CW-->
+                    <mask id="circleCW">
+                        <rect x="65.5" y="140.5" width="48" height="94" fill="white" />
+                        <circle cx="112" cy="185" r="19.5" fill="black" />
+                    </mask>
+                    <rect x="66" y="141" width="47" height="93" mask="url(#circleCW)" style="fill:#EAEAEA;stroke:black;stroke-width:0.5;opacity:1" />
+                    <circle cx="112" cy="185" r="20" mask="url(#circleCW)" style="fill:#EAEAEA;stroke:black;stroke-width:0.5;opacity:1" />
+                    <text x="70" y="185" fill="black" font-size="12">CW</text>
+
+                    <!--DS4-->
+                    <rect x="265" y="286" width="9" height="51" style="fill:#EAEAEA;stroke:black;stroke-width:0.5;opacity:1" />
+                    <text x="265" y="300" fill="black" font-size="12" transform="rotate(90 265 300)">DS4</text>
+                    <!--DS3-->
+                    <rect x="292" y="286" width="9" height="51" style="fill:#EAEAEA;stroke:black;stroke-width:0.5;opacity:1" />
+                    <text x="292" y="300" fill="black" font-size="12" transform="rotate(90 292 300)">DS3</text>
+                    <!--DS2-->
+                    <rect x="315" y="198" width="9" height="51" style="fill:#EAEAEA;stroke:black;stroke-width:0.5;opacity:1" />
+                    <text x="315" y="212" fill="black" font-size="12" transform="rotate(90 315 212)">DS2</text>
+                    <!--DS1-->
+                    <polygon points="308,287 332,287 332,337 320,337 320,301 308,301" style="fill:#EAEAEA;stroke:black;stroke-width:0.5;opacity:1" />
+                    <text x="322" y="300" fill="black" font-size="12" transform="rotate(90 322 300)">DS1</text>
+
+                    <!--BM-->
+                    <rect x="212" y="209" width="15" height="57" style="fill:#EAEAEA;stroke:black;stroke-width:0.5;opacity:1" />
+                    <text x="215" y="225" fill="black" font-size="12" transform="rotate(90 215 225)">BM</text>
+                    <!--WE-->
+                    <rect x="251" y="209" width="15" height="57" style="fill:#EAEAEA;stroke:black;stroke-width:0.5;opacity:1" />
+                    <text x="254" y="225" fill="black" font-size="12" transform="rotate(90 254 225)">WE</text>
+                    <!--WA-->
+                    <polygon points="213,334 243,334 243,322 225,322 225,301 243,301 243,288 213,288" style="fill:#EAEAEA;stroke:black;stroke-width:0.5;opacity:1" />
+                    <!--MCH-->
+                    <polygon points="279,177 304,177 304,181 326,177 314,123 292,123 296,138 279,138" style="fill:#EAEAEA;stroke:black;stroke-width:0.5;opacity:1" />
+                    <text x="300" y="140" fill="black" font-size="12" transform="rotate(80 300 140)">MCH</text>
+                    <!--WCH-->
+                    <polygon points="65,63 77,63 77,95 103,90 103,63 115,63 115,122 102,122 102,109 78,111 78,117 65,114" style="fill:#EAEAEA;stroke:black;stroke-width:0.5;opacity:1" />
+
+                    <text x="15" y="355" fill="black" font-size="12">Most św. Rocha</text>
+                    <text x="138" y="197" fill="black" font-size="12" transform="rotate(90 138 197)">Piotrowo</text>
+                    <text x="216" y="122" fill="black" font-size="12" transform="rotate(-22 216 122)">Berdychowo</text>
+                    <text x="339" y="160" fill="black" font-size="12" transform="rotate(90 339 160)">Jana Pawła II</text>
+                    <text x="190" y="355" fill="black" font-size="12">Kórnicka</text>
+
+                    <!--<path id="motionPath" d="M0 353 L136 353 Q143 353 143 343 L143 343 L143 134 Q144 132 146 131 L146 131 L180 131 Q186 131 190 129 L195 127 L335 73 Q346 69 346 64 L346 64 L346 0" fill="none" stroke="black"/>-->
+                    <rect id="carRed" x="-6" y="-3" width="14" height="6" style="fill:#ff5050;opacity:1">
+                        <animateMotion dur="12s" begin="0s" repeatCount="indefinite" rotate="auto" path="M0 353 L136 353 Q143 353 143 343 L143 343 L143 134 Q144 132 146 132 L146 132 L180 132 Q186 132 190 130 L195 128 L335 74 Q346 70 346 64 L346 64 L346 0" />
+                    </rect>
+                    <rect id="carBlack" x="-6" y="-3" width="14" height="6" style="fill:#4d4d4d;opacity:1">
+                        <animateMotion dur="8s" begin="0s" repeatCount="indefinite" rotate="auto" path="M341 0 L341 400" />
+                    </rect>
+                </svg>

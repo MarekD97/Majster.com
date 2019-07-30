@@ -49,13 +49,13 @@ session_start();
                                 Usługi
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Usługi budowlane</a>
-                                <a class="dropdown-item" href="#">Usługi remontowe</a>
-                                <a class="dropdown-item" href="#">Instalacje</a>
-                                <a class="dropdown-item" href="#">Aranżacja wnętrz</a>
-                                <a class="dropdown-item" href="#">Zewnętrzne, ogrodowe</a>
+                                <a class="dropdown-item" href="service_building.php">Usługi budowlane</a>
+                                <a class="dropdown-item" href="service_renovation.php">Usługi remontowe</a>
+                                <a class="dropdown-item" href="service_installation.php">Instalacje</a>
+                                <a class="dropdown-item" href="service_indoors.php">Aranżacja wnętrz</a>
+                                <a class="dropdown-item" href="service_outdoors.php">Zewnętrzne, ogrodowe</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#application_form">Formularz zgłoszeniowy</a>
+                                <a class="dropdown-item" href="#">Formularz zgłoszeniowy</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -67,11 +67,15 @@ session_start();
                         <li class="nav-item">
                             <a class="nav-link"></a>
                         </li>
-                        <?php
-                        if (isset($_SESSION['LOGGED'])) {
-                            echo '<li class="nav-item"><a class="nav-link" href="account.php">Profil</a></li>';
-                        }
-                        ?>
+                        <li class="nav-item">
+                            <?php
+                            if (isset($_SESSION['LOGGED'])) {
+                                echo '<a class="nav-link" href="account.php">Profil</a>';
+                            } else {
+                                echo '<a class="nav-link" href="#application_form">Załóż konto</a>';
+                            }
+                            ?>
+                        </li>
                         <li class="nav-item">
                             <?php
                             if (!isset($_SESSION['LOGGED'])) {
@@ -89,11 +93,6 @@ session_start();
         <section class="section-panel-fullscreen">
             <div class="parallax background-tools">
                 <div class="parallax-title">
-                    <?php
-                    if (isset($_POST['LOGOUT']))
-                        if ($_POST['LOGOUT'] == true)
-                            echo "Wylogowano pomyślnie<br />";
-                    ?>
                     Potrzebujesz fachowca? Pomożemy znaleźć najlepszego w mieście!
                     <div class="scroll-arrow">
                         <a href="#content">
@@ -115,7 +114,7 @@ session_start();
                         <li><a class="menu-link" href="#">Zewnętrzne, ogrodowe</a></li>
                     </ul>
                 </div>
-                <div class="col-sm-8">
+                <div class="col-sm-6">
                     <h2>Znajdź najlepszego fachowca w twojej okolicy!</h2>
                     <h5>Wystarczy, że:</h5>
                     <ol>
@@ -123,6 +122,14 @@ session_start();
                         <li>Przejrzysz zgłoszenia</li>
                         <li>Wybierzesz najlepszego</li>
                     </ol>
+                </div>
+                <div class="d-none d-sm-block col-sm-2">
+                    <h2>Zagraj w grę interaktywną!</h2>
+                    <div class="icon-game">
+                        <a href="game.php">
+                            <i class="fas fa-gamepad"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="row no-gutters">
@@ -154,7 +161,7 @@ session_start();
             </div>
         </div>
         <section class="section-panel-fullscreen">
-            <div class="parallax background-wall">
+            <div class="parallax background-wall parallax-half">
                 <div class="parallax-title">
                     Jesteś fahowcem i szukasz zleceń? Dołącz i otrzymuj zlecenia z całej Polski.
                 </div>
@@ -215,7 +222,6 @@ session_start();
                 }
             </script>
         </div>
-
         <footer class="footer">
             <div class="row no-gutters">
                 <div class="col-sm-12">

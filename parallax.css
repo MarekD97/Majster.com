@@ -13,6 +13,9 @@
 
 .background-wall {
     background-image: url("images/background_wall.jpg");
+}
+
+.parallax-half {
     height: 50vh;
 }
 
