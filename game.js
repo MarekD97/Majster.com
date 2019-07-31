@@ -8,7 +8,7 @@ function loadGame() {
     let container = document.getElementById("container");
 
     let number = parseInt(Math.random() * 1000) % words.length;
-    word = words[number];
+    word = words[number].toUpperCase();
     randomWord = randomLetters(word);
     var content = createCanvases(word.length);
     container.innerHTML = content;

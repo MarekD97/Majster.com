@@ -207,6 +207,20 @@ session_start();
                             Akceptuję regulamin serwisu<br />
                             <input type="submit" id="form_submit" value="Stwórz konto" disabled />
                         </form>
+                        <?php
+                        if(isset($_SESSION["USER_FAIL"])) {
+                            if($_SESSION["USER_FAIL"]) {
+                                echo '<h5 style="color:red">Taki użytkownik już istnieje!</h5>';
+                                unset($_SESSION["USER_FAIL"]);
+                            }
+                        }
+                        if(isset($_SESSION["PASS_FAIL"])) {
+                            if($_SESSION["PASS_FAIL"]) {
+                                echo '<h5 style="color:red">Hasła się nie zgadzają!</h5>';
+                                unset($_SESSION["PASS_FAIL"]);
+                            }
+                        }
+                        ?>
                     </div>
                 </div>
             </div>

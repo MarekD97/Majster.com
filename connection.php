@@ -18,7 +18,10 @@ mysqli_query($connection, "SET NAMES 'utf8' COLLATE 'utf8_polish_ci'");
 
 mysqli_select_db($connection, $database);
 
-$sql = "SELECT * FROM $table WHERE username=\"".$_POST['USER']."\" AND password=\"".md5($_POST['PASSWORD'])."\"";
+$user = addslashes($_POST['USER']);
+$password = addslashes($_POST['PASSWORD']);
+
+$sql = "SELECT * FROM $table WHERE username=\"".$user."\" AND password=\"".md5($password)."\"";
 $result = $connection->query($sql);
 
 if ($result->num_rows == 1) {

@@ -55,13 +55,13 @@ if (!isset($_SESSION['LOGGED'])) {
                                 Usługi
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Usługi budowlane</a>
-                                <a class="dropdown-item" href="#">Usługi remontowe</a>
-                                <a class="dropdown-item" href="#">Instalacje</a>
-                                <a class="dropdown-item" href="#">Aranżacja wnętrz</a>
-                                <a class="dropdown-item" href="#">Zewnętrzne, ogrodowe</a>
+                                <a class="dropdown-item" href="service_building.php">Usługi budowlane</a>
+                                <a class="dropdown-item" href="service_renovation.php">Usługi remontowe</a>
+                                <a class="dropdown-item" href="service_installation.php">Instalacje</a>
+                                <a class="dropdown-item" href="service_indoors.php">Aranżacja wnętrz</a>
+                                <a class="dropdown-item" href="service_outdoors.php">Zewnętrzne, ogrodowe</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="index.php#application_form">Formularz zgłoszeniowy</a>
+                                <a class="dropdown-item" href="#">Formularz zgłoszeniowy</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -74,13 +74,13 @@ if (!isset($_SESSION['LOGGED'])) {
                             <a class="nav-link"></a>
                         </li>
                         <li class="nav-item">
-                        <?php
-                        if (isset($_SESSION['LOGGED'])) {
-                            echo '<a class="nav-link" href="account.php">Profil</a>';
-                        } else {
-                            echo '<a class="nav-link" href="index.php#application_form">Załóż konto</a>';
-                        }
-                        ?>
+                            <?php
+                            if (isset($_SESSION['LOGGED'])) {
+                                echo '<a class="nav-link" href="account.php">Profil</a>';
+                            } else {
+                                echo '<a class="nav-link" href="index.php#application_form">Załóż konto</a>';
+                            }
+                            ?>
                         </li>
                         <li class="nav-item">
                             <?php

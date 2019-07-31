@@ -21,6 +21,19 @@ if (!isset($_SESSION['LOGGED'])) {
     <link href="https://fonts.googleapis.com/css?family=Chivo&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        input {
+            box-sizing: border-box;
+            border: none;
+            background-color: white;
+        }
+
+        input[type="submit"] {
+            box-sizing: border-box;
+            border: none;
+            background: transparent;
+        }
+    </style>
 </head>
 
 <body>
@@ -119,39 +132,86 @@ if (!isset($_SESSION['LOGGED'])) {
                                 <a class="account-link nav-link" href="#">Profil</a>
                             </li>
                             <li class="nav-item">
-                                <a class="account-link nav-link" href="#">Opinie</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="account-link nav-link" href="#">Inne</a>
+                                <a class="account-link nav-link" href="database_delete_account.php">Usuń konto</a>
                             </li>
                         </ul>
                     </div>
                 </nav>
             </div>
             <div class="row no-gutters" style="margin-top:4px;">
-                <table>
-                    <tr>
-                        <th>1</th>
-                        <th>2</th>
-                        <th>3</th>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>6</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>8</td>
-                        <td>9</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <td>11</td>
-                        <td>12</td>
-                    </tr>
+                <?php
+                require_once "database_connection.php";
+                $connection = mysqli_connect($servername, $username, $password);
+                if (!$connection) {
+                    die("Connection failed: " . mysqli_connect_error());
+                }
 
-                </table>
+                mysqli_query($connection, "SET CHARSET utf8");
+                mysqli_query($connection, "SET NAMES 'utf8' COLLATE 'utf8_polish_ci'");
+
+                mysqli_select_db($connection, $database);
+
+                $accountTable = "account_" . strtolower($_SESSION["LOGGED_USER"]);
+
+                $sql = "SELECT * FROM $accountTable";
+                $result = $connection->query($sql);
+
+                if ($result == null) {
+                    echo '<h2>Brak wyników</h2>';
+                } else if ($result->num_rows > 0) {
+                    echo '<table>';
+                    echo '<tr>';
+                    echo '<th>Id</th>';
+                    echo '<th>Imię</th>';
+                    echo '<th>Nazwisko</th>';
+                    echo '<th>E-mail</th>';
+                    echo '<th>Telefon</th>';
+                    echo '<th>Opis</th>';
+                    echo '<th style="width:70px"></th>';
+                    echo '<th style="width:70px"></th>';
+                    echo '</tr>';
+                    while ($row = $result->fetch_assoc()) {
+                        $button_edit = '<form action="account.php" method="post"><input type="hidden" name="EDIT" value="' . $row["id"] . '" /><input type="submit" value="edytuj" /></form>';
+                        $button_delete = '<form action="account.php" method="post"><input type="hidden" name="DELETE" value="' . $row["id"] . '" /><input type="submit" value="usuń" /></form>';
+
+                        if (isset($_POST["EDIT"]) && $_POST["EDIT"] == $row["id"]) {
+                            echo "<tr>";
+                            echo '<form action="database_edit_record.php" method="post">';
+                            echo '<td>' . $row["id"] . '</td>';
+                            echo '<td><input type="text" name="FIRSTNAME" value="' . $row["firstname"] . '"></td>';
+                            echo '<td><input type="text" name="LASTNAME" value="' . $row["lastname"] . '"></td>';
+                            echo '<td><input type="text" name="EMAIL" value="' . $row["email"] . '"></td>';
+                            echo '<td><input type="text" name="TELEPHONE" value="' . $row["telephone"] . '"></td>';
+                            echo '<td><input type="text" name="CONTENT" value="' . $row["content"] . '"></td>';
+                            echo '<td><input type="hidden" name="EDIT" value="' . $row["id"] . '" /><input type="submit" value="zapisz" /></td>';
+                            echo "</form>";
+                            echo '<td><form action="account.php" method="post"><input type="hidden" name="id" value="" /><input type="submit" value="anuluj" /></form></td>';
+                            echo "</tr>";
+                        } else {
+                            echo '<tr>';
+                            echo '<td>' . $row["id"] . '</td>';
+                            echo '<td>' . $row["firstname"] . '</td>';
+                            echo '<td>' . $row["lastname"] . '</td>';
+                            echo '<td>' . $row["email"] . '</td>';
+                            echo '<td>' . $row["telephone"] . '</td>';
+                            echo '<td>' . $row["content"] . '</td>';
+
+                            if (isset($_POST["DELETE"]) && $_POST["DELETE"] == $row["id"]) {
+                                echo '<td><form action="database_delete_record.php" method="post"><input type="hidden" name="DELETE" value="' . $row["id"] . '" /><input type="submit" value="usuń" /></td></form>';
+                                echo '<td><form action="account.php" method="post"><input type="hidden" name="id" value="" /><input type="submit" value="anuluj" /></form></td>';
+                            } else {
+                                echo "<td>$button_edit</td>";
+                                echo "<td>$button_delete</td>";
+                            }
+                            echo '</tr>';
+                        }
+                    }
+                    echo '</table>';
+                } else {
+                    echo '<h2>Brak wyników</h2>';
+                }
+                $connection->close();
+                ?>
             </div>
         </div>
 
