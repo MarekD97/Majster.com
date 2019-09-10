@@ -72,6 +72,15 @@ h5 {
   opacity: 0.6;
 }
 
+.input-form form select {
+  width: calc(100% - 144px);
+  box-sizing: border-box;
+  border: 2px solid #7e7272;
+  border-radius: 2px;
+  background-color: white;
+  padding: 4px;
+}
+
 .menu-link {
   color: #000000;
 }

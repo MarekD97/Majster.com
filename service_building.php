@@ -76,7 +76,7 @@ session_start();
                                 <a class="dropdown-item" href="service_indoors.php">Aranżacja wnętrz</a>
                                 <a class="dropdown-item" href="service_outdoors.php">Zewnętrzne, ogrodowe</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Formularz zgłoszeniowy</a>
+                                <a class="dropdown-item" href="add_order.php">Formularz zgłoszeniowy</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -93,7 +93,7 @@ session_start();
                             if (isset($_SESSION['LOGGED'])) {
                                 echo '<a class="nav-link" href="account.php">Profil</a>';
                             } else {
-                                echo '<a class="nav-link" href="#application_form">Załóż konto</a>';
+                                echo '<a class="nav-link" href="index.php#application_form">Załóż konto</a>';
                             }
                             ?>
                         </li>

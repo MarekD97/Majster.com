@@ -73,13 +73,13 @@ if ((isset($_SESSION['LOGGED'])) && ($_SESSION['LOGGED'] == true)) {
                                 Usługi
                             </a>
                             <div class="dropdown-menu">
-                            <a class="dropdown-item" href="service_building.php">Usługi budowlane</a>
+                                <a class="dropdown-item" href="service_building.php">Usługi budowlane</a>
                                 <a class="dropdown-item" href="service_renovation.php">Usługi remontowe</a>
                                 <a class="dropdown-item" href="service_installation.php">Instalacje</a>
                                 <a class="dropdown-item" href="service_indoors.php">Aranżacja wnętrz</a>
                                 <a class="dropdown-item" href="service_outdoors.php">Zewnętrzne, ogrodowe</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Formularz zgłoszeniowy</a>
+                                <a class="dropdown-item" href="add_order.php">Formularz zgłoszeniowy</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -92,13 +92,13 @@ if ((isset($_SESSION['LOGGED'])) && ($_SESSION['LOGGED'] == true)) {
                             <a class="nav-link"></a>
                         </li>
                         <li class="nav-item">
-                        <?php
-                        if (isset($_SESSION['LOGGED'])) {
-                            echo '<a class="nav-link" href="account.php">Profil</a>';
-                        } else {
-                            echo '<a class="nav-link" href="index.php#application_form">Załóż konto</a>';
-                        }
-                        ?>
+                            <?php
+                            if (isset($_SESSION['LOGGED'])) {
+                                echo '<a class="nav-link" href="account.php">Profil</a>';
+                            } else {
+                                echo '<a class="nav-link" href="index.php#application_form">Załóż konto</a>';
+                            }
+                            ?>
                         </li>
                     </ul>
                 </div>
@@ -116,6 +116,15 @@ if ((isset($_SESSION['LOGGED'])) && ($_SESSION['LOGGED'] == true)) {
                     <input class="input-text" type="password" name="PASSWORD" /><br />
                     <input type="submit" id="form_submit" value="Zaloguj się" />
                 </form>
+                <?php
+                if (isset($_SESSION["LOGGED"])) {
+                    if ($_SESSION["LOGGED"] == false) {
+                        echo '<h5 style="color:red">Niepoprawna nazwa użytkownika lub hasło!</h5>';
+                        unset($_SESSION["LOGGED"]);
+                    }
+                    unset($_SESSION["LOGGED"]);
+                }
+                ?>
             </div>
         </div>
         <footer class="footer">

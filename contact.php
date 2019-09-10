@@ -73,7 +73,7 @@ session_start();
                                 <a class="dropdown-item" href="service_indoors.php">Aranżacja wnętrz</a>
                                 <a class="dropdown-item" href="service_outdoors.php">Zewnętrzne, ogrodowe</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Formularz zgłoszeniowy</a>
+                                <a class="dropdown-item" href="add_order.php">Formularz zgłoszeniowy</a>
                             </div>
                         </li>
                         <li class="nav-item">

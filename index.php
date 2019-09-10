@@ -55,7 +55,7 @@ session_start();
                                 <a class="dropdown-item" href="service_indoors.php">Aranżacja wnętrz</a>
                                 <a class="dropdown-item" href="service_outdoors.php">Zewnętrzne, ogrodowe</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Formularz zgłoszeniowy</a>
+                                <a class="dropdown-item" href="add_order.php">Formularz zgłoszeniowy</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -107,11 +107,11 @@ session_start();
                 <div class="col-sm-4">
                     <h2>Rodzaje usług</h2>
                     <ul>
-                        <li><a class="menu-link" href="#">Usługi budowlane</a></li>
-                        <li><a class="menu-link" href="#">Usługi remontowe</a></li>
-                        <li><a class="menu-link" href="#">Instalacje</a></li>
-                        <li><a class="menu-link" href="#">Aranżacja wnętrz</a></li>
-                        <li><a class="menu-link" href="#">Zewnętrzne, ogrodowe</a></li>
+                        <li><a class="menu-link" href="service_building.php">Usługi budowlane</a></li>
+                        <li><a class="menu-link" href="service_renovation.php">Usługi remontowe</a></li>
+                        <li><a class="menu-link" href="service_installation.php">Instalacje</a></li>
+                        <li><a class="menu-link" href="service_indoors.php">Aranżacja wnętrz</a></li>
+                        <li><a class="menu-link" href="service_outdoors.php">Zewnętrzne, ogrodowe</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-6">
@@ -152,7 +152,7 @@ session_start();
                     <div class="input-form">
                         <h2>Poszukujesz fachowca?</h2>
                         <h5>Napisz poniżej czego potrzebujesz...</h5>
-                        <form action="" method="post">
+                        <form action="add_order.php" method="post">
                             <input class="input-text" type="text" name="SEARCH" placeholder="np. gipsowanie ścian, montaż okien..." />
                             <input type="submit" value="Dalej" />
                         </form>
@@ -208,14 +208,14 @@ session_start();
                             <input type="submit" id="form_submit" value="Stwórz konto" disabled />
                         </form>
                         <?php
-                        if(isset($_SESSION["USER_FAIL"])) {
-                            if($_SESSION["USER_FAIL"]) {
+                        if (isset($_SESSION["USER_FAIL"])) {
+                            if ($_SESSION["USER_FAIL"]) {
                                 echo '<h5 style="color:red">Taki użytkownik już istnieje!</h5>';
                                 unset($_SESSION["USER_FAIL"]);
                             }
                         }
-                        if(isset($_SESSION["PASS_FAIL"])) {
-                            if($_SESSION["PASS_FAIL"]) {
+                        if (isset($_SESSION["PASS_FAIL"])) {
+                            if ($_SESSION["PASS_FAIL"]) {
                                 echo '<h5 style="color:red">Hasła się nie zgadzają!</h5>';
                                 unset($_SESSION["PASS_FAIL"]);
                             }

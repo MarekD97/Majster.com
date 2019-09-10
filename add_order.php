@@ -1,28 +1,22 @@
 <!DOCTYPE html>
 <?php
 session_start();
-if (!isset($_SESSION['LOGGED'])) {
-    header('Location: login.php');
-    $_SESSION['PAGE_LOCATION'] = "gallery.php";
-    exit();
-}
 ?>
 <html lang="pl">
 
 <head>
-    <title>Majster.com - Strona logowania</title>
+    <title>Majster.com - Strona główna</title>
     <link rel="icon" href="images/logo.ico">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="navbar.css">
+    <link rel="stylesheet" type="text/css" href="parallax.css">
     <link rel="stylesheet" type="text/css" href="socialmedia.css">
-    <link rel="stylesheet" type="text/css" href="gallery_style.css">
     <link href="https://fonts.googleapis.com/css?family=Chivo&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="gallery.js"></script>
 </head>
 
 <body>
@@ -54,7 +48,7 @@ if (!isset($_SESSION['LOGGED'])) {
                             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                                 Usługi
                             </a>
-                            <div class="dropdown-menu">
+                            <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="service_building.php">Usługi budowlane</a>
                                 <a class="dropdown-item" href="service_renovation.php">Usługi remontowe</a>
                                 <a class="dropdown-item" href="service_installation.php">Instalacje</a>
@@ -96,14 +90,104 @@ if (!isset($_SESSION['LOGGED'])) {
 
             </nav>
         </header>
-        <div style="height:62px"></div>
-        <div class="container gallery" id="content">
-            <!--gallery grid-->
+        <section class="section-panel-fullscreen">
+            <div class="parallax parallax-half background-tools">
+                <div class="parallax-title">
+                    Potrzebujesz fachowca? Pomożemy znaleźć najlepszego w mieście!
+                </div>
+            </div>
+        </section>
+        <div class="container" id="content">
+            <div class="row no-gutters">
+                <div class="col-sm-4">
+                    <h2>Fachowcy blisko ciebie</h2>
+                    <ul>
+                        <li>Warszawa</li>
+                        <li>Kraków</li>
+                        <li>Łódź</li>
+                        <li>Wrocław</li>
+                        <li>Poznań</li>
+                        <li>Gdańsk</li>
+                        <li>Szczecin</li>
+                        <li>Bydgoszcz</li>
+                        <li>Lublin</li>
+                        <li>Katowice</li>
+                    </ul>
+                </div>
+                <div class="col-sm-8" id="application_form">
+                    <div class="input-form">
+                        <h2>Wybierz specjalistę i podaj swoje dane</h2>
+                        <h5>Opisz czym fachowiec ma się zająć...</h5>
+                        <form action="database_add_record.php" method="post">
+                            Specjalista<br />
+                            <select name="SPECIALIST">
+                                <?php
+                                    session_start();
+                                    
+                                    require_once "database_connection.php";
+                                    $connection = mysqli_connect($servername, $username, $password);
+                                    if (!$connection) {
+                                        die("Connection failed: " . mysqli_connect_error());
+                                    }
+                                    
+                                    mysqli_query($connection, "SET CHARSET utf8");
+                                    mysqli_query($connection, "SET NAMES 'utf8' COLLATE 'utf8_polish_ci'");
+                                    
+                                    mysqli_select_db($connection, $database);
+                                    
+                                    $sql = "SELECT * FROM $table";
+                                    $result = $connection->query($sql);
+                                    
+                                    if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                            $specialist = $row['firstname'].' '.$row['lastname'];
+                                            echo '<option value="'.$row['username'].'">'.$specialist.'</option>';
+                                        }
+                                    } else {
+                                        echo '<option value="none">Brak</option>';
+                                    }
+                                    $connection->close();
+                                ?>
+                            </select><br />
+                            Imię<br />
+                            <input class="input-text" type="text" name="FIRSTNAME" /><br />
+                            Nazwisko<br />
+                            <input class="input-text" type="text" name="LASTNAME" /><br />
+                            E-mail<br />
+                            <input class="input-text" type="text" name="EMAIL" /><br />
+                            Numer telefonu<br />
+                            <input class="input-text" type="text" name="TELEPHONE" /><br />
+                            Opis zlecenia<br />
+                            <input class="input-text" type="text" name="CONTENT" value="<?php 
+                            if(isset($_POST["SEARCH"]))
+                            echo $_POST["SEARCH"] 
+                            ?>" /><br />
+                            <input type="checkbox" id="form_checkbox" onclick="Checked()" />
+                            Akceptuję regulamin serwisu<br />
+                            <input type="submit" id="form_submit" value="Wyślij zgłoszenie" disabled />
+                        </form>
+                        <?php
+                        if (isset($_SESSION["ADD_RECORD"])) {
+                            if ($_SESSION["ADD_RECORD"]) {
+                                echo '<h5 style="color:green">Wysłano zgłoszenie!</h5>';
+                                unset($_SESSION["ADD_RECORD"]);
+                            }
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
             <script>
-                loadGallery();
+                function Checked() {
+                    var checkbox = document.getElementById("form_checkbox");
+                    var submit = document.getElementById("form_submit");
+                    if (checkbox.checked == true) {
+                        submit.disabled = false;
+                    } else {
+                        submit.disabled = true;
+                    }
+                }
             </script>
-        </div>
-        <div class="container-fullscreen" id="content-fullscreen" style="visibility:collapse">
         </div>
         <footer class="footer">
             <div class="row no-gutters">

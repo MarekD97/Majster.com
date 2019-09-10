@@ -39,11 +39,8 @@ if ($result->num_rows == 1) {
     $_SESSION['TELEPHONE'] = $row['telephone'];
     header('Location: ' . $_SESSION['REDIRECT']);
 } else {
-    $_SESSION['REDIRECT'] = "index.php";
+    $_SESSION['REDIRECT'] = "login.php";
     $_SESSION['LOGGED'] = false;
-    //unset($_SESSION['LOGGED']);
-    // unset($_SESSION['LOGGED_USER']);
-    session_unset();
     header('Location: login.php');
 }
 $connection->close();

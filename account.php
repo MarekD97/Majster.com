@@ -16,7 +16,7 @@ if (!isset($_SESSION['LOGGED'])) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="navbar.css">
-    <link rel="stylesheet" type="text/css" href="account-style.css">
+    <link rel="stylesheet" type="text/css" href="account_style.css">
     <link rel="stylesheet" type="text/css" href="socialmedia.css">
     <link href="https://fonts.googleapis.com/css?family=Chivo&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
@@ -72,7 +72,7 @@ if (!isset($_SESSION['LOGGED'])) {
                                 <a class="dropdown-item" href="service_indoors.php">Aranżacja wnętrz</a>
                                 <a class="dropdown-item" href="service_outdoors.php">Zewnętrzne, ogrodowe</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Formularz zgłoszeniowy</a>
+                                <a class="dropdown-item" href="add_order.php">Formularz zgłoszeniowy</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -132,7 +132,18 @@ if (!isset($_SESSION['LOGGED'])) {
                                 <a class="account-link nav-link" href="#">Profil</a>
                             </li>
                             <li class="nav-item">
-                                <a class="account-link nav-link" href="database_delete_account.php">Usuń konto</a>
+                                <a id="deleteAccount" class="account-link nav-link" onClick="deleteClick()" href="#">Usuń konto</a>
+                                <script>
+                                    function deleteClick() {
+                                        document.getElementById("deleteAccount").style.display= "none";
+                                        document.getElementById("deleteAccountForever").style.display = "block";
+                                    }
+                                    function deleteForeverClick() {
+                                        document.getElementById("deleteAccount").style.display= "block";
+                                        document.getElementById("deleteAccountForever").style.display = "none";
+                                    }
+                                </script>
+                                <a id="deleteAccountForever" class="account-link nav-link" style="display:none;color:red;" onClick="deleteForeverClick()" href="database_delete_account.php">Usuń na zawsze</a>
                             </li>
                         </ul>
                     </div>
